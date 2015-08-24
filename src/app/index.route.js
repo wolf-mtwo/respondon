@@ -18,7 +18,7 @@
         url: '/book/:bookId',
         templateUrl: 'app/books/index.html',
         controller: 'BooksController',
-        controllerAs: 'booksContainer'
+        // controllerAs: 'booksContainer'
       })
       .state('book.home', {
         url: '/',
@@ -29,6 +29,12 @@
         url: '/list',
         templateUrl: 'app/books/list.html',
         controller: 'BooksController'
+      })
+      .state('book.config', {
+        url: '/config',
+        templateUrl: 'app/books/config/index.html',
+        controller: 'BooksConfigController',
+        controllerAs: 'BooksConfigController'
       })
       .state('book.newquestion', {
         url: '/new',

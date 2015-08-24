@@ -32,13 +32,13 @@
       return [
         {
           _id: 1000,
-          chapter: 10,
+          chapters: 10,
           title: 'El buey Adventista',
           description: 'orttitor amet ac pulvinar augue ut a magna, egestas placerat scelerisque mid dapibus dis ac lorem parturient dictumst? Duis rhoncus, ultricies urna, enim, hab'
         },
         {
           _id: 1001,
-          chapter: 3,
+          chapters: 3,
           title: 'Cursus ac sagittis nunc eu',
           description: 'orttitor amet ac pulvinar augue ut a magna, egestas placerat scelerisque mid dapibus dis ac lorem parturient dictumst? Duis rhoncus, ultricies urna, enim, hab'
         }

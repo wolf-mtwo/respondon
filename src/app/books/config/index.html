@@ -1,0 +1,12 @@
+<div>
+  Configuracion de examen
+  <p ng-repeat="chapter in BooksConfigController.chapters"
+     class="form">
+      Capitulo {{chapter.title}}
+    <button type="button"
+            ng-click="BooksConfigController.changeState(chapter)"
+            ng-class="{false:'btn btn-danger', true:'btn btn-success'}[chapter.state]">
+      Change state
+    </button>
+  </p>
+</div>
