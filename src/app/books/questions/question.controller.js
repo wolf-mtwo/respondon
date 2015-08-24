@@ -3,10 +3,10 @@
 
   angular
     .module('respondon')
-    .controller('BookController', BookController);
+    .controller('QuestionController', QuestionController);
 
   /** @ngInject */
-  function BookController($state, $timeout, Books, toastr) {
+  function QuestionController($state, $timeout, Books, toastr) {
     var vm = this;
     vm.params = $state.params;
     toastr.info('Bienvenido!');

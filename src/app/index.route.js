@@ -14,11 +14,26 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('home.book', {
-        url: 'book/:bookId',
-        templateUrl: 'app/book/index.html',
-        controller: 'BookController',
-        controllerAs: 'book'
+      .state('book', {
+        url: '/book/:bookId',
+        templateUrl: 'app/books/index.html',
+        controller: 'BooksController',
+        controllerAs: 'booksContainer'
+      })
+      .state('book.home', {
+        url: '/',
+        templateUrl: 'app/books/home.html',
+        controller: 'BooksController'
+      })
+      .state('book.list', {
+        url: '/list',
+        templateUrl: 'app/books/list.html',
+        controller: 'BooksController'
+      })
+      .state('book.newquestion', {
+        url: '/new',
+        templateUrl: 'app/books/new.html',
+        controller: 'BooksController'
       });
 
     $urlRouterProvider.otherwise('/');

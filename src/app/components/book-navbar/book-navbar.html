@@ -1,0 +1,18 @@
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="book.home(vm.params.bookId)">
+        <span class="glyphicon glyphicon-home"></span> Principal
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="book.list">Lista de preguntas</a></li>
+        <li><a ui-sref="book.newquestion">Añadir nueva pregunta</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right acme-navbar-text">
+        <li>{{ vm.relativeDate }}</li>
+      </ul>
+    </div>
+  </div>
+</nav>
