@@ -48,26 +48,9 @@
     }
 
     /** @ngInject */
-    function MalarkeyController($log, githubContributor) {
+    function MalarkeyController($log) {
       var vm = this;
-
       vm.contributors = [];
-
-      activate();
-
-      function activate() {
-        return getContributors().then(function() {
-          $log.info('Activated Contributors View');
-        });
-      }
-
-      function getContributors() {
-        return githubContributor.getContributors(10).then(function(data) {
-          vm.contributors = data;
-
-          return vm.contributors;
-        });
-      }
     }
 
   }
