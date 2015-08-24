@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Lista de preguntas</div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Pregunta
+        </th>
+        <th>
+          Tipo
+        </th>
+        <th>
+          Capitulo
+        </th>
+      </tr>
+    </thead>
+    <tr ng-repeat="question in booksContainer.questions">
+      <td>
+        {{question.title}}
+      </td>
+      <td>
+        {{question.type}}
+      </td>
+      <td>
+        {{question.chapter}}
+      </td>
+    </tr>
+  </table>
+</div>
