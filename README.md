@@ -1,5 +1,12 @@
 # Respondon
 
+## version 0.0.2
+- Crear un nuevo servicio con los valores de la configiracion de los capitulos
+- Create pagina para dat los eramenes
+  - Añadir un pagina anidada para el tipo de prueba "general"
+  - "general" : consite que se dara la prueba con todos las preguntas
+  existentes de los capitulos seleccionados
+
 ## version 0.0.1
 
 - Buscar nombre y crear logo

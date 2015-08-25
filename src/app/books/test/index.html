@@ -1,0 +1,23 @@
+<div>
+  {{TestController.name}}
+  <div>
+    {{TestController.answered}}/{{TestController.total}}
+  </div>
+  <div ng-if="TestController.question">
+    {{TestController.question.title}}
+    <div ng-if"TestController.question.type == 'FoV'">
+      F o V
+      {{TestController.question.response}}
+    </div>
+    <div ng-if"TestController.question.type == 'MULTIPLE'">
+      {{TestController.question.response}}
+    </div>
+  </div>
+  <div ng-if="!TestController.question">
+    <button type="button"
+            ng-click="TestController.startTest()"
+            class="btn btn-default">
+      Empezar Test
+    </button>
+  </div>
+</div>

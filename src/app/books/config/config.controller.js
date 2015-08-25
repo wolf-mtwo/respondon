@@ -6,7 +6,7 @@
     .controller('BooksConfigController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, $timeout, Books, Questions, toastr) {
+  function controller($scope, $state, Config, toastr) {
     var vm = this;
     vm.params = $state.params;
     vm.chapters = generaterChapters($scope.book.chapters);
@@ -28,8 +28,8 @@
           result.push(item._id);
         }
       });
-      localStorage.setItem($scope.book._id, result);
-      console.log(localStorage.getItem($scope.book._id).split(','));
+      Config.set($scope.book._id, result);
+      console.log(Config.get($scope.book._id));
     }
 
     function generaterChapters(chapters) {

@@ -18,12 +18,18 @@
         url: '/book/:bookId',
         templateUrl: 'app/books/index.html',
         controller: 'BooksController',
-        // controllerAs: 'booksContainer'
+        controllerAs: 'booksContainer'
       })
       .state('book.home', {
         url: '/',
         templateUrl: 'app/books/home.html',
         controller: 'BooksController'
+      })
+      .state('book.home.test', {
+        url: 'test',
+        templateUrl: 'app/books/test/index.html',
+        controller: 'TestController',
+        controllerAs: 'TestController'
       })
       .state('book.list', {
         url: '/list',
