@@ -5,12 +5,12 @@
   </div>
   <div ng-if="TestController.question">
     {{TestController.question.title}}
-    <div ng-if"TestController.question.type == 'FoV'">
-      F o V
-      {{TestController.question.response}}
-    </div>
-    <div ng-if"TestController.question.type == 'MULTIPLE'">
-      {{TestController.question.response}}
+    <div ng-repeat="option in TestController.question.options">
+      <button type="button"
+              ng-click="TestController.validateAnswer(option)"
+              ng-class="{false:'btn btn-danger', true:'btn btn-success', null:'btn btn-primary'}[option.state]">
+              {{option.value}}
+      </button>
     </div>
   </div>
   <div ng-if="!TestController.question">

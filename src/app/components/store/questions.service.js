@@ -49,7 +49,16 @@
           title: '¡Question chapter 1?',
           type: 'FoV',
           chapter: 1,
-          response: false
+          response: [
+            {
+              value: 'Verdad',
+              response: false
+            },
+            {
+              value: 'Falso',
+              response: true
+            }
+          ]
         },
         {
           _id: 1101,
@@ -57,7 +66,16 @@
           title: '¡Question chapter 1 1?',
           type: 'FoV',
           chapter: 3,
-          response: true
+          response: [
+            {
+              value: 'Verdad',
+              response: false
+            },
+            {
+              value: 'Falso',
+              response: true
+            }
+          ]
         },
         {
           _id: 1102,
@@ -65,7 +83,16 @@
           title: '¡Question chapter 1 2?',
           type: 'FoV',
           chapter: 3,
-          response: false
+          response: [
+            {
+              value: 'Verdad',
+              response: false
+            },
+            {
+              value: 'Falso',
+              response: true
+            }
+          ]
         },
         {
           _id: 1103,
@@ -73,7 +100,16 @@
           title: '¡Question chapter 1 3?',
           type: 'FoV',
           chapter: 3,
-          response: true
+          response: [
+            {
+              value: 'Verdad',
+              response: false
+            },
+            {
+              value: 'Falso',
+              response: true
+            }
+          ]
         },
         {
           _id: 2000,

@@ -12,7 +12,8 @@
     $scope.book = Books.getById(vm.params.bookId);
     vm.name = 'Examen controller';
     vm.questions = Questions.getBooks(vm.params.bookId);
-    console.log(vm.questions);
+    vm.buildAnswerOptions = buildAnswerOptions;
+    vm.validateAnswer = validateAnswer;
 
     // cantities
     vm.answered = 0;
@@ -23,9 +24,27 @@
     vm.question = null;
     function startTest() {
       var limit = preProcesorRandom();
-      toastr.info('Pregunta "{0}"'.replace('{0}', limit + 1));
+      // toastr.info('Pregunta "{0}"'.replace('{0}', limit + 1));
       var question = vm.questions.splice(limit, 1);
       vm.question = question[0];
+      vm.question.options = buildAnswerOptions(vm.question);
+    }
+
+    function validateAnswer(option) {
+      console.log(option);
+      var toastrType = {};
+      if (option.response == true) {
+        option.state = true;
+        toastrType.state = 'success';
+        toastrType.response = 'Correcto!!';
+      } else {
+        option.state = false;
+        toastrType.state = 'error';
+        toastrType.response = 'Incorrecto!!';
+      }
+      toastr[toastrType.state](toastrType.response, option.value, {
+        positionClass: 'toast-top-full-width',
+      });
     }
 
     function preProcesorRandom() {
@@ -38,6 +57,27 @@
         throw new Error('limit is not defined');
       }
       return Math.floor(Math.random() * limit);
+    }
+
+    function buildAnswerOptions(question) {
+      if (!question) {
+        throw new Error('question is not defined');
+      }
+      if (!question.response) {
+        throw new Error('question.response is not defined');
+      }
+      var options = [];
+      question.response.forEach(function(item) {
+        if (!item.value) {
+            throw new Error('value is not defined');
+        }
+        options.push({
+          value: item.value,
+          response: item.response,
+          state: null
+        });
+      });
+      return options;
     }
   }
 })();
