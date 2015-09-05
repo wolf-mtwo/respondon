@@ -9,7 +9,9 @@
   function controller($scope, $state, $timeout, Books, Questions, toastr) {
     var vm = this;
     vm.params = $state.params;
-    $scope.book = Books.getById(vm.params.bookId);
+    Books.getById({id: vm.params.bookId}, function(response) {
+      $scope.book = response;
+    });
     vm.questions = Questions.getBooks(vm.params.bookId);
     toastr.info('Bienvenido!', 'info');
   }

@@ -8,30 +8,36 @@
   /** @ngInject */
   function controller($scope, $state, $timeout, Books, Questions, toastr) {
     var vm = this;
+    vm.name = 'Tomar examen';
     vm.params = $state.params;
-    $scope.book = Books.getById(vm.params.bookId);
-    vm.name = 'Examen controller';
+    Books.getById({id: vm.params.bookId}, function(response) {
+      $scope.book = response;
+    });
     vm.questions = Questions.getBooks(vm.params.bookId);
     vm.buildAnswerOptions = buildAnswerOptions;
     vm.validateAnswer = validateAnswer;
 
     // cantities
-    vm.answered = 0;
+    vm.answered = [];
     vm.total = vm.questions.length;
-
     vm.startTest = startTest;
-
     vm.question = null;
-    function startTest() {
+    vm.participantName = null;
+
+    var isQuerstionEnable = false;
+
+    function startTest(participantName) {
+      if (!participantName) {
+        throw new Error('participantName is not defined');
+      }
+      vm.participantName = participantName;
       var limit = preProcesorRandom();
-      // toastr.info('Pregunta "{0}"'.replace('{0}', limit + 1));
       var question = vm.questions.splice(limit, 1);
       vm.question = question[0];
       vm.question.options = buildAnswerOptions(vm.question);
     }
 
     function validateAnswer(option) {
-      console.log(option);
       var toastrType = {};
       if (option.response == true) {
         option.state = true;
@@ -42,6 +48,13 @@
         toastrType.state = 'error';
         toastrType.response = 'Incorrecto!!';
       }
+      // %
+      vm.answered.push({
+        question: vm.question,
+        result: option
+      });
+      console.log(vm.answered);
+      // display results
       toastr[toastrType.state](toastrType.response, option.value, {
         positionClass: 'toast-top-full-width',
       });
