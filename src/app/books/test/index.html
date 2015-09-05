@@ -1,23 +1,50 @@
-<div>
-  {{TestController.name}}
-  <div>
-    {{TestController.answered}}/{{TestController.total}}
-  </div>
-  <div ng-if="TestController.question">
-    {{TestController.question.title}}
-    <div ng-repeat="option in TestController.question.options">
-      <button type="button"
-              ng-click="TestController.validateAnswer(option)"
-              ng-class="{false:'btn btn-danger', true:'btn btn-success', null:'btn btn-primary'}[option.state]">
+<div class="question">
+    <h3>
+      {{TestController.name}}
+    </h3>
+  <h2 class="text-right">
+    {{TestController.participantName}}
+    {{TestController.answered.length}}/{{TestController.total}}
+  </h2>
+  <div ng-if="TestController.question" class="text-center">
+    <div class="row">
+      <h2 class="title">
+        <i>{{TestController.question.title}}</i>
+      </h2>
+      <div class="col-md-offset-3 col-md-6">
+        <div class="col-md-6"
+             ng-repeat="option in TestController.question.options">
+          <div class="btn-space">
+            <button type="button"
+                    ng-click="TestController.validateAnswer(option)"
+                    ng-class="{false:'btn btn-danger', true:'btn btn-success', null:'btn btn-primary'}[option.state]">
               {{option.value}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row footer">
+      <button type="button"
+              ng-click="TestController.nextQuestion()"
+              class="btn btn-info">
+        Siguiente
       </button>
     </div>
   </div>
-  <div ng-if="!TestController.question">
-    <button type="button"
-            ng-click="TestController.startTest()"
-            class="btn btn-default">
-      Empezar Test
-    </button>
+  <div ng-if="!TestController.question" class="text-center start">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nombre</label>
+      <input type="text"
+            class="form-control"
+            ng-model="participantName"
+            placeholder="Nombre"
+            requerid>
+    </div>
+      <button type="button"
+              ng-click="TestController.startTest(participantName)"
+              class="btn btn-primary btn-lg">
+        Empezar Examen
+      </button>
   </div>
 </div>

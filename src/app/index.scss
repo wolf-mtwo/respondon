@@ -27,6 +27,26 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   }
 }
 
+.question {
+  padding: 0 100px;
+  .start {
+    input {
+      width: 20%;
+      display: inline;
+    }
+  }
+  .title {
+    color: #17DAD4;
+  }
+  .btn-space {
+    padding-bottom: 10px;
+  }
+  .footer {
+    padding-top: 50px;
+  }
+}
+
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
