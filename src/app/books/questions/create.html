@@ -11,11 +11,16 @@
     <br>
     <div class="input-group">
       <span class="input-group-addon">Tipo</span>
-      <input type="text"
+      <select name="singleSelect" ng-model="item.type">
+        <option value="">---Please select---</option>
+        <option value="VoF">Falso o verdadero</option>
+        <option value="MULTIPLE">Selecion multiple</option>
+      </select>
+      <!-- <input type="text"
         class="form-control"
         placeholder="VoF,MULTIPLE"
         ng-model="item.type"
-        required>
+        required> -->
     </div>
     <br>
     <div class="input-group">

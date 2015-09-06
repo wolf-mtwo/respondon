@@ -31,21 +31,11 @@
         controller: 'TestController',
         controllerAs: 'TestController'
       })
-      .state('book.list', {
-        url: '/list',
-        templateUrl: 'app/books/list.html',
-        controller: 'BooksController'
-      })
       .state('book.config', {
         url: '/config',
         templateUrl: 'app/books/config/index.html',
         controller: 'BooksConfigController',
         controllerAs: 'BooksConfigController'
-      })
-      .state('book.newquestion', {
-        url: '/new',
-        templateUrl: 'app/books/new.html',
-        controller: 'BooksController'
       });
 
     $urlRouterProvider.otherwise('/');
