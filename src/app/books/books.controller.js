@@ -12,7 +12,9 @@
     Books.getById({id: vm.params.bookId}, function(response) {
       $scope.book = response;
     });
-    vm.questions = Questions.getBooks(vm.params.bookId);
-    toastr.info('Bienvenido!', 'info');
+    vm.questions = Questions.get({bookId: vm.params.bookId}, function(response) {
+      $scope.questions = response;
+    });
+    // toastr.info('Bienvenido!', 'info');
   }
 })();
