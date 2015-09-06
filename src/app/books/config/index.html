@@ -1,12 +1,18 @@
-<div>
+<div class="config-btns">
   <h3>Configuracion de examen</h3>
-  <p ng-repeat="chapter in BooksConfigController.chapters"
-     class="form">
+  <div ng-repeat="chapter in chapters">
       Capitulo {{chapter.title}}
     <button type="button"
-            ng-click="BooksConfigController.changeState(chapter)"
+            ng-click="changeState(chapter)"
             ng-class="{false:'btn btn-danger', true:'btn btn-success'}[chapter.state]">
       Change state
     </button>
-  </p>
+  </div>
 </div>
+<style media="screen">
+.config-btns div {
+  float: left;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+</style>

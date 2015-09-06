@@ -20,17 +20,6 @@
         controller: 'BooksController',
         controllerAs: 'booksContainer'
       })
-      .state('book.home', {
-        url: '/',
-        templateUrl: 'app/books/home.html',
-        controller: 'BooksController'
-      })
-      .state('book.home.test', {
-        url: 'test',
-        templateUrl: 'app/books/test/index.html',
-        controller: 'TestController',
-        controllerAs: 'TestController'
-      })
       .state('book.config', {
         url: '/config',
         templateUrl: 'app/books/config/index.html',

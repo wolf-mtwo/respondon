@@ -1,9 +1,29 @@
-<div ng-repeat="participant in participants">
-  <a ui-sref="book.participants.update({participantId:participant.id})">
-    {{participant.name}}
-  </a>
-  {{participant.score}}
+<div class="panel panel-default">
+  <div class="panel-heading">Lista de participantes</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Nombre
+        </th>
+        <th>
+          Calificacion
+        </th>
+      </tr>
+    </thead>
+    <tr ng-repeat="participant in participants">
+      <td>
+        <a ui-sref="book.participants.update({participantId:participant.id})">
+          {{participant.name}}
+        </a>
+      </td>
+      <td>
+          {{participant.score}}
+      </td>
+    </tr>
+  </table>
 </div>
+
 <div ui-view>
   <button class="btn btn-primary">Nuevo participante</button>
 </div>
