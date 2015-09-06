@@ -7,10 +7,14 @@
 
   /** @ngInject */
   function controller($scope, $state, $timeout, Books, Questions, toastr) {
-    var vm = this;
-    vm.params = $state.params;
-    $scope.book = Books.getById(vm.params.bookId);
-    vm.questions = Questions.getBooks(vm.params.bookId);
-    toastr.info('Bienvenido!', 'info');
+    // var vm = this;
+    // vm.params = $state.params;
+    // Books.getById({id: vm.params.bookId}, function(response) {
+    //   $scope.book = response;
+    // });
+    // vm.questions = Questions.get({bookId: vm.params.bookId}, function(response) {
+    //   $scope.questions = response;
+    // });
+    // toastr.info('Bienvenido!', 'info');
   }
 })();

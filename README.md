@@ -1,13 +1,27 @@
 # Respondon
 
-## version 0.0.2
+## build 0.0.3
+- Mostrar pregunta
+- las preguntas de falso verdadero deben conciderarse como de seleccion multiple
+- las opciones de respuesta son deven estas ocultos
+- las respuestas se deven mostrar deun color neutral
+- al seleccionar una respuesta debe mostrarce de acuerdo al color que corresponda:
+  - Neutral: azul
+  - Rojo: in-correcto
+  - Verde: correcto
+- El resultado deberia mostrarse en un pop o algo que resalte en la pagina
+- Deberia haber un boton para seleccionar la siguiente pregunta
+- el contrador deberia incrementar en uan unidad
+- al terminar deberia mostrarse el resultado
+
+## build 0.0.2
 - Crear un nuevo servicio con los valores de la configiracion de los capitulos
 - Create pagina para dat los eramenes
   - Añadir un pagina anidada para el tipo de prueba "general"
   - "general" : consite que se dara la prueba con todos las preguntas
   existentes de los capitulos seleccionados
 
-## version 0.0.1
+## build 0.0.1
 
 - Buscar nombre y crear logo
 - Create un pagina principal

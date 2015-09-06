@@ -3,13 +3,47 @@
 
   angular
     .module('respondon')
-    .factory('Books', Books);
+    .factory('Books', service);
 
   /** @ngInject */
-  function Books() {
+  // function($resource) {
+  //   var url = './api/events/participant/eventId/:eventId/';
+  //   return $resource(url, {
+  //   }, {
+  //     update: {
+  //       url: url + 'participantId/:id',
+  //       method: 'PUT'
+  //     },
+  //     save: {
+  //       // url: url + '/talk/:talkId',
+  //       method: 'POST'
+  //     },
+  //     get: {
+  //       url: url + 'participantId/:id',
+  //       method: 'GET'
+  //     },
+  //     remove: {
+  //       url: url + 'participantId/:id',
+  //       method: 'DELETE'
+  //     }
+  //   });
+  // }
+  function service($resource) {
+
+    var url = 'http://localhost:8080/pregunton-api/api/persist/books';
+    var storeResourse = $resource(url, {
+      id: '@id'
+      }, {
+         get: {
+           url: url + '/id/:id',
+           method: 'GET'
+         }
+      });
+
     var service = {
-      getAll: getAll,
-      getById: getById
+      getAll: storeResourse.query,
+      // getAll: getAll,
+      getById: storeResourse.get
     };
 
     return service;

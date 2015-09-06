@@ -3,10 +3,10 @@
 
   angular
     .module('respondon')
-    .factory('Questions', service);
+    .factory('Participants', service);
 
   function service($resource) {
-    var url = 'http://localhost:8080/pregunton-api/api/books/questions';
+    var url = 'http://localhost:8080/pregunton-api/api/persist/participants';
     return $resource(url, {
       id: '@id'
     }, {

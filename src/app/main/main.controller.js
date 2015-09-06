@@ -10,7 +10,10 @@
     var vm = this;
 
     vm.awesomeThings = [];
-    vm.books = Books.getAll();
+    Books.getAll(function(response) {
+      console.log(response);
+       vm.books = response;
+    });
     vm.classAnimation = '';
     vm.creationDate = 1440358344770;
     vm.showToastr = showToastr;
