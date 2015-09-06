@@ -1,0 +1,55 @@
+<div>
+  <form ng-submit="saveQuestion(item)">
+    <div class="input-group">
+      <span class="input-group-addon">Pregunta</span>
+      <input type="text"
+        class="form-control"
+        placeholder="Pregunta"
+        ng-model="item.title"
+        required>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">Tipo</span>
+      <input type="text"
+        class="form-control"
+        placeholder="VoF,MULTIPLE"
+        ng-model="item.type"
+        required>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">Capitulo</span>
+      <input type="text"
+        class="form-control"
+        placeholder="Capitulo"
+        ng-model="item.chapter"
+        required>
+    </div>
+    <h2>Repuestas</h2>
+    <div>
+      <ul>
+        <li ng-repeat="answer in answers">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"
+                      ng-model="answer.response">
+                {{answer.value}}
+                <a ng-click="removeQuestion(answer, $index)">Eliminar</a>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="input-group">
+      <input type="text"
+        ng-model="templateResponse"
+        required>
+        <a class="btn btn-primary" ng-click="addResponse(templateResponse)">Agregar repuesta</a>
+    </div>
+    <br>
+    <button type="submit"
+        class="btn btn-primary">Nueva pregunta</button>
+    <button class="btn btn-default" ui-sref="home">Cancelar</button>
+  </form>
+</div>

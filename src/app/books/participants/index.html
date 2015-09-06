@@ -1,0 +1,9 @@
+<div ng-repeat="participant in participants">
+  <a ui-sref="book.participants.update({participantId:participant.id})">
+    {{participant.name}}
+  </a>
+  {{participant.score}}
+</div>
+<div ui-view>
+  <button class="btn btn-primary">Nuevo participante</button>
+</div>
