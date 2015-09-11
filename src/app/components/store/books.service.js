@@ -5,29 +5,6 @@
     .module('respondon')
     .factory('Books', service);
 
-  /** @ngInject */
-  // function($resource) {
-  //   var url = './api/events/participant/eventId/:eventId/';
-  //   return $resource(url, {
-  //   }, {
-  //     update: {
-  //       url: url + 'participantId/:id',
-  //       method: 'PUT'
-  //     },
-  //     save: {
-  //       // url: url + '/talk/:talkId',
-  //       method: 'POST'
-  //     },
-  //     get: {
-  //       url: url + 'participantId/:id',
-  //       method: 'GET'
-  //     },
-  //     remove: {
-  //       url: url + 'participantId/:id',
-  //       method: 'DELETE'
-  //     }
-  //   });
-  // }
   function service($resource) {
 
     var url = 'http://localhost:8080/pregunton-api/api/persist/books';
@@ -39,10 +16,8 @@
            method: 'GET'
          }
       });
-
     var service = {
       getAll: storeResourse.query,
-      // getAll: getAll,
       getById: storeResourse.get
     };
 

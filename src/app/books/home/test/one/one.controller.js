@@ -3,10 +3,11 @@
 
   angular
     .module('respondon')
-    .controller('TestController', controller);
+    .controller('OneController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, $timeout, Books, Questions, toastr) {
+  function controller($scope, $state, Participants, Books, Questions, toastr) {
+
     // var vm = this;
     // vm.name = 'Tomar examen';
     // vm.params = $state.params;

@@ -7,7 +7,6 @@
 
   function service($resource) {
 
-
     var service = {
       toString: toString,
       toJSON: toJSON
@@ -21,8 +20,6 @@
         throw new Error('responseArray is not defined');
       }
       responseArray.forEach(function(item) {
-
-        console.log(item);
         if (!item.value) {
           throw new Error('item.value is not defined');
         }
