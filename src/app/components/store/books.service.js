@@ -18,7 +18,8 @@
       });
     var service = {
       getAll: storeResourse.query,
-      getById: storeResourse.get
+      getById: storeResourse.get,
+      get: storeResourse.get
     };
 
     return service;
