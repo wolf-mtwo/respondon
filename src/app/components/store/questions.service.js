@@ -13,6 +13,10 @@
       update: {
         url: url + '/id/:id',
         method: 'PUT'
+      },
+      delete: {
+        url: url + '/id/:id',
+        method: 'DELETE'
       }
     });
   }

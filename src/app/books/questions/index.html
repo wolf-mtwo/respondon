@@ -15,6 +15,9 @@
         <th>
           Capitulo
         </th>
+        <th>
+          Eliminar
+        </th>
       </tr>
     </thead>
     <tr ng-repeat="question in questions">
@@ -27,8 +30,14 @@
       <td>
         {{question.chapter}}
       </td>
+      <td>
+        <a ng-click="deleteQuestion(question, $index)">Eliminar</a>
+      </td>
     </tr>
   </table>
 </div>
 
-<div ui-view></div>
+<div ui-view>
+  <a class="btn btn-primary"
+     ui-sref="book.questions.create">Agregar repuesta</a>
+</div>

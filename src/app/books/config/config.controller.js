@@ -6,30 +6,44 @@
     .controller('BooksConfigController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Config, toastr) {
-    var vm = this;
-    vm.params = $state.params;
-    vm.chapters = generaterChapters($scope.book.chapters);
-    vm.changeState = changeState;
+  function controller($scope, $state, Books, Config, toastr) {
 
-    function changeState(chapter) {
+    Books.getById({id: $state.params.bookId}, function(response) {
+      $scope.book = response;
+      var chapters = generaterChapters($scope.book.chapters);
+      $scope.chapters =  loadLocalConfiguration(chapters);
+    });
+
+    function loadLocalConfiguration(chapters) {
+      var localConfig = Config.get($scope.book.id);
+      chapters.forEach(function(item) {
+        localConfig.forEach(function(id) {
+          if (id == item.id) {
+            item.state = true;
+          }
+        });
+      });
+      return chapters;
+    }
+
+    $scope.changeState = function(chapter) {
       if (!chapter) {
         throw new Error('chapter is not defined');
       }
       chapter.state = !chapter.state;
-      save();
+      $scope.saveConfiguration();
     }
 
-    function save() {
+    $scope.saveConfiguration = function () {
       var result = [];
-      vm.chapters.forEach(function(item) {
+      $scope.chapters.forEach(function(item) {
         if (item.state) {
           //TODO: Change it.
-          result.push(item._id);
+          result.push(item.id);
         }
       });
-      Config.set($scope.book._id, result);
-      console.log(Config.get($scope.book._id));
+      Config.set($scope.book.id, result);
+      console.log(Config.get($scope.book.id));
     }
 
     function generaterChapters(chapters) {
@@ -42,12 +56,11 @@
       var result = [];
       for (var i = 1; i <= chapters; i++) {
         result.push({
-          _id: i,
+          id: i,
           title: i,
           state: false
         })
       }
-      console.log(result);
       return result;
     }
 

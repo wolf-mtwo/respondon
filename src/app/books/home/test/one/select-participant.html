@@ -1,0 +1,7 @@
+<div ng-controller="SelectController" ng-init="loadParticipantList()">
+  <ul>
+    <li ng-repeat="participant in participants">
+      <a ng-click="selectParticipant(participant)">{{participant.name}}</a>
+    </li>
+  </ul>
+</div>
