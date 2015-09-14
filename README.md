@@ -1,5 +1,14 @@
 # Respondon
 
+## build 0.1.0
+- todos los datos deben buardarse en una base de datos
+  - crear un nuevo servicio para libros
+  - crear un nuevo servicio para participates
+  - crear un nuevo servicio para las preguntas
+- seleccionar un particiante antes de empezar a llenar preguntas
+- cambiar participantes al dar examen
+- mostrar los resultados en una grafica de los participantes
+
 ## build 0.0.3
 - Mostrar pregunta
 - las preguntas de falso verdadero deben conciderarse como de seleccion multiple
