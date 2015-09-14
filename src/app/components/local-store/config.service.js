@@ -19,7 +19,9 @@
         throw new Error('value is not defined');
       }
       var result = [];
-      var items = localStorage.getItem(value).split(',')
+      var value = localStorage.getItem(value);
+      value = value || '';
+      var items = value.split(',');
       items.forEach(function (item) {
         var number = parseInt(item);
         if (number) {
