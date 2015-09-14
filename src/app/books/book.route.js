@@ -13,6 +13,11 @@
         templateUrl: 'app/books/participants/index.html',
         controller: 'ParticipantsController'
       })
+      .state('book.charts', {
+        url: '/charts',
+        templateUrl: 'app/books/charts/index.html',
+        controller: 'ChartsController'
+      })
       .state('book.participants.create', {
         url: '/create',
         templateUrl: 'app/books/participants/create.html',

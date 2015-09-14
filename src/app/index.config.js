@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastr) {
+  function config($logProvider, toastr, highchartsNGProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -15,6 +15,10 @@
     toastr.options.positionClass = 'toast-top-right';
     toastr.options.preventDuplicates = true;
     toastr.options.progressBar = true;
+
+    highchartsNGProvider.lazyLoad([highchartsNGProvider.HIGHCHART]);
+    highchartsNGProvider.basePath("/assets/lib/");
+
   }
 
 })();

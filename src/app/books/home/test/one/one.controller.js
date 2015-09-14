@@ -52,7 +52,14 @@
       toastr[toastrType.state](toastrType.response, option.value, {
         positionClass: 'toast-top-full-width',
       });
+
       if ($scope.isQuerstionEnable) {
+        if (option.response) {
+          $scope.participant.score++;
+          $scope.participant.$update(function(item) {
+            console.log(item);
+          });
+        }
         $scope.answered.push({
           question: $scope.question,
           result: option
@@ -109,7 +116,10 @@
     $scope.loadParticipant = function() {
       console.info('init function throws');
       var participant = JSON.parse(localStorage.getItem('participant'));
-      $scope.participant = validateParticipant(participant);
+      participant = validateParticipant(participant);
+      Participants.get({id: participant.id}, function(response) {
+        $scope.participant = response;
+      });
     }
 
     var validateParticipant = function(participant) {
