@@ -5,8 +5,8 @@
     .module('respondon')
     .factory('Participants', service);
 
-  function service($resource) {
-    var url = 'http://localhost:8080/pregunton-api/api/persist/participants';
+  function service($resource, Global) {
+    var url = Global.PATH + '/api/persist/participants';
     return $resource(url, {
       id: '@id'
     }, {

@@ -7,12 +7,46 @@
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
+    var validateSession = function($q, $location, Global, Store) {
+      var deferred = $q.defer();
+      var session = Store.get('session');
+      if (!session) {
+        deferred.resolve($location.path('/login'));
+      } else {
+        Global.user = isUser(session);
+        deferred.resolve($location.path());
+      }
+      return deferred.promise;
+    }
+
+    var isUser = function(user) {
+      if (!user) {
+        throw new Error('user is not defined');
+      }
+      if (!user.name) {
+        throw new Error('user.name is not defined');
+      }
+      if (!user.email) {
+        throw new Error('user.email is not defined');
+      }
+      if (!user.password) {
+        throw new Error('user.password is not defined');
+      }
+      if (!user.cel) {
+        throw new Error('user.cel is not defined');
+      }
+      return user;
+    }
+
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve:{
+          init: validateSession
+        }
       })
       .state('book', {
         url: '/book/:bookId',

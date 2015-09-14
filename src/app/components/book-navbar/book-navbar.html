@@ -19,6 +19,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right acme-navbar-text">
         <li>{{ vm.relativeDate }}</li>
+        <li>
+          <a ng-click="logout()" ng-controller="SessionsController">
+            cerrar session
+          </a>
+        </li>
       </ul>
     </div>
   </div>

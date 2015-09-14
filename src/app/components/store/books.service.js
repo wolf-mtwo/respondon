@@ -5,9 +5,9 @@
     .module('respondon')
     .factory('Books', service);
 
-  function service($resource) {
+  function service($resource, Global) {
 
-    var url = 'http://localhost:8080/pregunton-api/api/persist/books';
+    var url = Global.PATH + '/api/persist/books';
     var storeResourse = $resource(url, {
       id: '@id'
       }, {
@@ -36,23 +36,6 @@
         }
       })
       return result;
-    }
-
-    function getAll() {
-      return [
-        {
-          _id: 1000,
-          chapters: 10,
-          title: 'El buey Adventista',
-          description: 'orttitor amet ac pulvinar augue ut a magna, egestas placerat scelerisque mid dapibus dis ac lorem parturient dictumst? Duis rhoncus, ultricies urna, enim, hab'
-        },
-        {
-          _id: 1001,
-          chapters: 3,
-          title: 'Cursus ac sagittis nunc eu',
-          description: 'orttitor amet ac pulvinar augue ut a magna, egestas placerat scelerisque mid dapibus dis ac lorem parturient dictumst? Duis rhoncus, ultricies urna, enim, hab'
-        }
-      ];
     }
   }
 })();

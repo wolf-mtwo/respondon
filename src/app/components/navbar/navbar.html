@@ -9,8 +9,19 @@
       <ul class="nav navbar-nav">
         <li><a ui-sref="home.book.list"></a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right acme-navbar-text">
+      <ul ng-if="vm.user" class="nav navbar-nav navbar-right acme-navbar-text">
+        <li><a href="#">{{vm.user.name}}</a></li>
+        <li>
+          <a ng-click="logout()" ng-controller="SessionsController">
+            cerrar session
+          </a>
+        </li>
+      </ul>
+      <ul ng-if="!vm.user" class="nav navbar-nav navbar-right acme-navbar-text">
+        <li><a ui-sref="home.register">registrarse</a></li>
+        <li><a ui-sref="home.login">iniciar session</a></li>
         <li>{{ vm.relativeDate }}</li>
+        <li>{{ vm.user }}</li>
       </ul>
     </div>
   </div>

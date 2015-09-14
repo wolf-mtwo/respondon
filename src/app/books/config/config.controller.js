@@ -8,7 +8,7 @@
   /** @ngInject */
   function controller($scope, $state, Books, Config, toastr) {
 
-    Books.getById({id: $state.params.bookId}, function(response) {
+    Books.get({id: $state.params.bookId}, function(response) {
       $scope.book = response;
       var chapters = generaterChapters($scope.book.chapters);
       $scope.chapters =  loadLocalConfiguration(chapters);
@@ -43,7 +43,6 @@
         }
       });
       Config.set($scope.book.id, result);
-      console.log(Config.get($scope.book.id));
     }
 
     function generaterChapters(chapters) {
@@ -63,6 +62,6 @@
       }
       return result;
     }
-
   }
+
 })();
