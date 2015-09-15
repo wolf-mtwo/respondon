@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+          creationDate: '=',
+          user: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -26,6 +27,9 @@
 
       // "vm.creation" is avaible by directive option "bindToController: true"
       vm.relativeDate = moment(vm.creationDate).fromNow();
+
+      // user session
+      //vm.user;
     }
   }
 

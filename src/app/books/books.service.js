@@ -3,10 +3,11 @@
 
   angular
     .module('respondon')
-    .factory('Questions', service);
+    .factory('Books', service);
 
   function service($resource, Global) {
-    var url = Global.PATH + '/api/books/questions';
+
+    var url = Global.PATH + '/api/persist/books';
     return $resource(url, {
       id: '@id'
     }, {
@@ -14,11 +15,14 @@
         url: url + '/id/:id',
         method: 'PUT'
       },
-      delete: {
-        url: url + '/id/:id',
-        method: 'DELETE'
-      }
+       get: {
+         url: url + '/id/:id',
+         method: 'GET'
+       },
+       delete: {
+         url: url + '/id/:id',
+         method: 'DELETE'
+       }
     });
   }
-
 })();

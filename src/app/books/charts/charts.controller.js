@@ -15,11 +15,9 @@
           }
       },
       xAxis: {
-       categories: ['Apples', 'Oranges', 'Pears', 'Grapes']
+       categories: []
      },
-      series: [{
-          data: [10, 15, 12, 8]
-      }],
+      series: [],
       title: {
           text: 'Notas'
       },

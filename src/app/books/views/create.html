@@ -1,0 +1,36 @@
+<div class="row space">
+  <div>
+    <form ng-submit="saveBook(item)">
+      <div class="input-group">
+        <span class="input-group-addon">Titulo</span>
+        <input type="text"
+          class="form-control"
+          placeholder="Titulo"
+          ng-model="item.title"
+          required>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Description</span>
+        <input type="text"
+          class="form-control"
+          placeholder="descripcion"
+          ng-model="item.description"
+          required>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Capitulos</span>
+        <input type="number"
+          class="form-control"
+          placeholder="Capitulos"
+          ng-model="item.chapters"
+          required>
+      </div>
+      <br>
+      <button type="submit"
+          class="btn btn-primary">Nuevo libro</button>
+      <button class="btn btn-default" ui-sref="home">Cancelar</button>
+    </form>
+  </div>
+</div>

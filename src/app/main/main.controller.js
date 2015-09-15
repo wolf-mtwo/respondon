@@ -6,12 +6,17 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, Books, toastr) {
+  function MainController($scope, Global, $timeout, Books, toastr) {
+
+    /**
+     * Autentication state
+     */
+    $scope.user = Global.user;
+
     var vm = this;
 
     vm.awesomeThings = [];
-    Books.getAll(function(response) {
-      console.log(response);
+    Books.query(function(response) {
        vm.books = response;
     });
     vm.classAnimation = '';

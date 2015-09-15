@@ -6,7 +6,7 @@
     .directive('bookNavbar', bookNavbar);
 
   /** @ngInject */
-  function bookNavbar() {
+  function bookNavbar(Global) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/book-navbar/book-navbar.html',
@@ -23,6 +23,11 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
+
+      /**
+       * Autentication state
+       */
+      vm.user = Global.user;
     }
   }
 
