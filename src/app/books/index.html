@@ -3,7 +3,7 @@
   <div>
     <book-navbar/>
   </div>
-  <h1>{{book.title}}</h1>
+  <h1>{{book.title}} <small><a ui-sref="book.update">update</a></small> <small><a ng-click="deleteBook()">eliminar</a></small></h1>
 
   <div ui-view>Empty</div>
 

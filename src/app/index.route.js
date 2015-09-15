@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
-    var validateSession = function($q, $location, Global, Store) {
+    var validateSession = function($q, $location, Global, Store, $state) {
       var deferred = $q.defer();
       var session = Store.get('session');
       if (!session) {
@@ -44,7 +44,7 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main',
-        resolve:{
+        resolve: {
           init: validateSession
         }
       })
@@ -52,7 +52,17 @@
         url: '/book/:bookId',
         templateUrl: 'app/books/index.html',
         controller: 'BooksController',
-        controllerAs: 'booksContainer'
+        resolve: {
+          init: validateSession
+        }
+      })
+      .state('home.newbook', {
+        url: 'newbook',
+        templateUrl: 'app/books/views/create.html',
+        controller: 'BooksCreateController',
+        resolve: {
+          init: validateSession
+        }
       })
       .state('book.config', {
         url: '/config',

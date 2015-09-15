@@ -7,6 +7,11 @@
 
   /** @ngInject */
   function routeConfig($stateProvider) {
+    $stateProvider.state('book.update', {
+      url: '/update',
+      templateUrl: 'app/books/views/update.html',
+      controller: 'BooksController'
+    });
     $stateProvider
       .state('book.participants', {
         url: '/participants',

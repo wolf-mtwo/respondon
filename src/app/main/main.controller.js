@@ -16,7 +16,7 @@
     var vm = this;
 
     vm.awesomeThings = [];
-    Books.getAll(function(response) {
+    Books.query(function(response) {
        vm.books = response;
     });
     vm.classAnimation = '';
