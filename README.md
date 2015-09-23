@@ -1,4 +1,7 @@
 # Respondon
+## build 0.1.1
+- Actualizados todos los servicios
+- Implimentando authentication y session
 
 ## build 0.1.0
 - todos los datos deben buardarse en una base de datos
