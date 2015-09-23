@@ -6,7 +6,7 @@
     .factory('Participants', service);
 
   function service($resource, Global) {
-    var url = Global.PATH + '/api/persist/participants';
+    var url = Global.PATH + '/rest/v1/participants';
     return $resource(url, {
       id: '@id'
     }, {

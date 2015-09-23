@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
+
     var validateSession = function($q, $location, Global, Store, $state) {
       var deferred = $q.defer();
       var session = Store.get('session');
@@ -41,28 +42,34 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
+        templateUrl: function() {
+          var session = JSON.parse(localStorage.getItem('session'));
+          if (!session) {
+            return 'app/main/index.html';
+          }
+          return 'app/main/main.html';
+        },
         controller: 'MainController',
         controllerAs: 'main',
-        resolve: {
-          init: validateSession
-        }
+        // resolve: {
+        //   init: validateSession
+        // }
       })
       .state('book', {
         url: '/book/:bookId',
         templateUrl: 'app/books/index.html',
         controller: 'BooksController',
-        resolve: {
-          init: validateSession
-        }
+        // resolve: {
+        //   init: validateSession
+        // }
       })
       .state('home.newbook', {
         url: 'newbook',
         templateUrl: 'app/books/views/create.html',
         controller: 'BooksCreateController',
-        resolve: {
-          init: validateSession
-        }
+        // resolve: {
+        //   init: validateSession
+        // }
       })
       .state('book.config', {
         url: '/config',

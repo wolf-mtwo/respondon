@@ -6,9 +6,12 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastr, highchartsNGProvider) {
+  function config($logProvider, toastr, highchartsNGProvider, $httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    // Loading token
+    $httpProvider.defaults.headers.common['x-access-token'] = localStorage.getItem('token');
 
     // Set options third-party lib
     toastr.options.timeOut = 1000;

@@ -6,7 +6,8 @@
     .constant('Global', {
       user: null,
       role: null,
-      PATH: 'http://localhost:8080/pregunton-api'
+      // PATH: ''
+      PATH: 'http://localhost:8080/respondon-api'
     });
 
 })();

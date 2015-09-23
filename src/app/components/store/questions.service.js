@@ -6,7 +6,7 @@
     .factory('Questions', service);
 
   function service($resource, Global) {
-    var url = Global.PATH + '/api/books/questions';
+    var url = Global.PATH + '/rest/v1/questions';
     return $resource(url, {
       id: '@id'
     }, {
