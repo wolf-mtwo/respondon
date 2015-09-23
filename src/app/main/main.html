@@ -6,16 +6,7 @@
 
   <div ui-view>
 
-    <div class="jumbotron text-center">
-      <p class="lead">
-        <img src="assets/images/respondon.png" alt="respondon"><br>
-      </p>
-      <p>
-        With ♥ thanks to the contributions of<acme-malarkey extra-values="['Wolf', 'Wargos']" />
-      </p>
-    </div>
-
-    <div class="row">
+    <div class="row" ng-init="init()">
       <div class="col-sm-6 col-md-4" ng-repeat="book in main.books">
         <div class="thumbnail">
           <div class="caption">

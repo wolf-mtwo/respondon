@@ -7,7 +7,7 @@
 
   function service($resource, Global) {
 
-    var url = Global.PATH + '/api/persist/books';
+    var url = Global.PATH + '/rest/v1/books';
     return $resource(url, {
       id: '@id'
     }, {

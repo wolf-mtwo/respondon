@@ -8,6 +8,12 @@
   /** @ngInject */
   function MainController($scope, Global, $timeout, Books, toastr) {
 
+    $scope.init = function() {
+      Books.query(function(response) {
+         vm.books = response;
+      });
+    }
+
     /**
      * Autentication state
      */
@@ -16,9 +22,7 @@
     var vm = this;
 
     vm.awesomeThings = [];
-    Books.query(function(response) {
-       vm.books = response;
-    });
+
     vm.classAnimation = '';
     vm.creationDate = 1440358344770;
     vm.showToastr = showToastr;
