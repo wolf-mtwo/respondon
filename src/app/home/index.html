@@ -1,9 +1,11 @@
 <div class="container">
 
   <div>
-    <acme-navbar creationDate="main.creationDate" user="user"/>
+    <acme-navbar user="user" options="navbar"/>
   </div>
+
   <!-- {{user}} -->
+
   <div ui-view>
     <div ng-if="!user">
       <div class="jumbotron text-center">

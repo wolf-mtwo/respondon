@@ -7,6 +7,26 @@
 
   /** @ngInject */
   function controller(Global, $scope, $state, $timeout, Books, Questions, toastr) {
+
+    $scope.navbar = [
+      {
+        route: 'book.questions',
+        value: '¡Preguntas!'
+      },
+      {
+        route: 'book.participants',
+        value: 'Participantes'
+      },
+      {
+        route: 'book.config',
+        value: 'Configuracion del examen'
+      },
+      {
+        route: 'book.charts',
+        value: 'Resultados'
+      }
+    ];
+
     Books.get({id: $state.params.bookId}, function(response) {
       $scope.book = response;
     });

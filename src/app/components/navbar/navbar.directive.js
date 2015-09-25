@@ -7,12 +7,15 @@
 
   /** @ngInject */
   function acmeNavbar(Auth) {
+
+    var user = null;
+
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '=',
-          user: '='
+          user: '=',
+          options: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -24,6 +27,8 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
+      vm.links = vm.options;
+      vm.user = user;
       Auth.subcrive(function(user) {
         vm.user = user;
       });
