@@ -6,10 +6,11 @@
     .controller('ParticipantsController', QuestionController);
 
   /** @ngInject */
-  function QuestionController($scope, $state, $timeout, Participants, toastr) {
+  function QuestionController(Auth, $scope, $state, $timeout, Participants, toastr) {
     $scope.participants = [];
     Participants.query({
-      bookId: $state.params.bookId
+      bookId: $state.params.bookId,
+      userId: Auth.user.id
     } , function(response) {
       $scope.participants = response;
     });
