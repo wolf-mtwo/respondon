@@ -6,7 +6,7 @@
     .controller('BooksCreateController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Books, Global) {
+  function controller($scope, $state, Books, Auth) {
 
     $scope.saveBook = function(item) {
       if (!item.title) {
@@ -15,7 +15,7 @@
       if (!item.description) {
         throw new Error('item.description is not defined');
       }
-      item.userId = Global.user.id;
+      item.userId = Auth.user.id;
       Books.save(item, function(response) {
         $state.go('book.home.test', {bookId: response.id});
       });

@@ -7,10 +7,21 @@
 
   /** @ngInject */
   function routeConfig($stateProvider) {
+
+    $stateProvider.state('book', {
+      url: '/book/:bookId',
+      templateUrl: 'app/books/index.html',
+      controller: 'BooksController'
+    });
+    $stateProvider.state('book.config', {
+      url: '/config',
+      templateUrl: 'app/books/config/index.html',
+      controller: 'BooksConfigController',
+      controllerAs: 'BooksConfigController'
+    });
     $stateProvider.state('book.update', {
       url: '/update',
-      templateUrl: 'app/books/views/update.html',
-      controller: 'BooksController'
+      templateUrl: 'app/books/views/update.html'
     });
     $stateProvider
       .state('book.participants', {

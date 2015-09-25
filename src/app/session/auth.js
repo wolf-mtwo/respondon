@@ -6,10 +6,13 @@
     .factory('Auth', service);
 
   function service($rootScope, Store, $http) {
-    var user = null;
+    var user =  Store.load('user');
     var saveUser = function(user) {
       if (!user) {
         throw new Error('user is undefined');
+      }
+      if (!user.token) {
+        throw new Error('token is undefined');
       }
 
       var token = user.token;
@@ -27,6 +30,7 @@
         item(user);
       })
     }
+
     var subcrive = function(func) {
       subcriptors.push(func);
       loadUser();

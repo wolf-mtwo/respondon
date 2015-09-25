@@ -6,7 +6,9 @@
     .controller('BooksController', controller);
 
   /** @ngInject */
-  function controller(Global, $scope, $state, $timeout, Books, Questions, toastr) {
+  function controller(Auth, $scope, $state, $timeout, Books, Questions, toastr) {
+
+    $scope.book = {};
 
     $scope.navbar = [
       {
@@ -43,6 +45,8 @@
 
     $scope.loadBook = function() {
       Books.get({id: $state.params.bookId}, function(response) {
+        // TODO Update this parse on back-end
+        response.chapters = parseInt(response.chapters);
         $scope.item = response;
       });
     }
@@ -57,7 +61,7 @@
     }
 
     $scope.validateAction = function(book) {
-      if (Global.user.id == book.userId) {
+      if (Auth.user.id == book.userId) {
         return true;
       } else {
         var message = 'Usted no tiene acceso para realizar esta actividad';

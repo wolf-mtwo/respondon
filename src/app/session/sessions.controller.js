@@ -21,8 +21,14 @@
 
     $scope.register = function(item) {
       item.name = 'Lorem';
-      Users.save(item, function(response) {
-        $scope.changeToSessionMaster(response);
+      Users.save(item, function() {
+        var sessionCredentiales = {
+          email: item.email,
+          password: item.password
+        }
+        Session.login(sessionCredentiales, function(response) {
+          $scope.changeToSessionMaster(response);
+        });
       });
     }
 

@@ -8,7 +8,9 @@
   /** @ngInject */
   function QuestionController($scope, $state, $timeout, Participants, toastr) {
     $scope.participants = [];
-    Participants.query(function(response) {
+    Participants.query({
+      bookId: $state.params.bookId
+    } , function(response) {
       $scope.participants = response;
     });
   }
