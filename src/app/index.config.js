@@ -7,6 +7,10 @@
 
   /** @ngInject */
   function config($logProvider, toastr, highchartsNGProvider, $httpProvider) {
+
+    // Session
+   $httpProvider.interceptors.push('authInterceptor');
+
     // Enable log
     $logProvider.debugEnabled(true);
 

@@ -6,7 +6,7 @@
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function acmeNavbar(Auth) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
@@ -24,12 +24,9 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-
-      // user session
-      //vm.user;
+      Auth.subcrive(function(user) {
+        vm.user = user;
+      });
     }
   }
 

@@ -12,6 +12,9 @@
      }, {
        login: {
          method: 'POST'
+       },
+       user: {
+         method: 'GET'
        }
      });
   }

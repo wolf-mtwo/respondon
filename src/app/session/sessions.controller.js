@@ -6,7 +6,7 @@
     .controller('SessionsController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Global, Session, Users, Store, $http) {
+  function controller($scope, $state, Global, Session, Users, Auth) {
 
     $scope.item = {
       email: 'wolf@wolf.com',
@@ -27,25 +27,12 @@
     }
 
     $scope.logout = function() {
-      Store.remove('session');
-      Global.user = null;
+      Auth.removeUser();
       $state.go('home', {}, {reload: true});
     }
 
     $scope.changeToSessionMaster = function(user) {
-      if (!user) {
-        throw new Error('user is undefined');
-      }
-
-      var token = user.token;
-      // Saving on local storage
-      localStorage.setItem('token', token);
-
-      delete user['token'];
-      Store.save('session', user);
-      Global.user = user;
-      $http.defaults.headers.common['x-access-token'] = token;
-
+      Auth.saveUser(user);
       $state.go('home', {}, {reload: true});
     }
   }
