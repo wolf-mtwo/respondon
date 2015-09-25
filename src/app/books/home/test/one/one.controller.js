@@ -6,7 +6,17 @@
     .controller('OneController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Participants, Books, Questions, toastr, ResponseSerializer) {
+  function controller(
+    $scope,
+    $state,
+    Participants,
+    Books,
+    Questions,
+    toastr,
+    ResponseSerializer,
+    ParticipantLocal,
+    QuestionsLocal
+  ) {
 
     $scope.participant = {};
 
@@ -19,15 +29,15 @@
       $scope.book = response;
     });
 
-    Questions.query({bookId: $state.params.bookId}, function(response) {
+    QuestionsLocal.query({bookId: $state.params.bookId}, function(response) {
       $scope.questions = restore(response);
       $scope.total = $scope.questions.length;
       $scope.selectQuestion();
     });
 
     $scope.nextQuestion = function() {
-      $scope.isQuerstionEnable = true;
       $scope.selectQuestion();
+      $scope.isQuerstionEnable = true;
     }
 
     $scope.selectQuestion = function() {
@@ -109,19 +119,6 @@
       return questions;
     }
 
-    $scope.removeSelectedParticipant = function() {
-      localStorage.removeItem('participant');
-    }
-
-    $scope.loadParticipant = function() {
-      console.info('init function throws');
-      var participant = JSON.parse(localStorage.getItem('participant'));
-      participant = validateParticipant(participant);
-      Participants.get({id: participant.id}, function(response) {
-        $scope.participant = response;
-      });
-    }
-
     var validateParticipant = function(participant) {
       if (!participant.id) {
         throw new Error('participant.id is not defined');
@@ -134,5 +131,17 @@
       }
       return participant;
     }
+
+    // select participant area
+    $scope.loadParticipant = function() {
+      ParticipantLocal.load(function(response) {
+          $scope.participant = response;
+      });
+    }
+
+    $scope.removeSelectedParticipant = function() {
+      ParticipantLocal.remove();
+    }
   }
+
 })();

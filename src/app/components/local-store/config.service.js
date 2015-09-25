@@ -7,9 +7,24 @@
 
   /** @ngInject */
   function configuration() {
+
+    function loadLocalConfiguration(bookId) {
+      var result = [];
+      var localConfig = get(bookId);
+      localConfig.forEach(function(item) {
+        result.push({
+          id: item,
+          title: item,
+          state: true
+        })
+      });
+      return result;
+    }
+
     var service = {
       get: get,
-      set: set
+      set: set,
+      load: loadLocalConfiguration
     };
 
     return service;

@@ -12,6 +12,10 @@
 
     $scope.navbar = [
       {
+        route: 'book.home.test',
+        value: '!Examen!'
+      },
+      {
         route: 'book.questions',
         value: '¡Preguntas!'
       },

@@ -6,7 +6,7 @@
     .controller('QuestionsCreateController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Questions, ResponseSerializer) {
+  function controller(Auth, $scope, $state, Questions, ResponseSerializer) {
     // Questions.query({bookId: $state.params.bookId}, function(response) {
     //   $scope.questions = response;
     // });
@@ -18,6 +18,7 @@
 
       //setting bookId
       item.bookId = $state.params.bookId;
+      item.userId = Auth.user.id;
       item.response = ResponseSerializer.toString($scope.answers);
 
       Questions.save(item, function(response) {

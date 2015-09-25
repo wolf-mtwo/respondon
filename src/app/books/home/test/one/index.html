@@ -1,7 +1,7 @@
 <div class="question">
   <h2 ng-init="loadParticipant()">
     {{participant.name}}
-    <a ng-click="removeSelectedParticipant()">eliminar</a>
+
   </h2>
   <h2 class="text-right">
     {{answered.length}}/{{total}}
@@ -32,6 +32,7 @@
       </button>
     </div>
   </div>
+  <a ng-click="removeSelectedParticipant()">selecionar otro jugador</a>
   <div ng-if="!question" class="text-center start">
       <button type="button"
               ng-click="startTest()"

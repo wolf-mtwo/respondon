@@ -26,7 +26,9 @@
 
     $scope.participants = [];
     setInterval(function() {
-      Participants.query(function(response) {
+      Participants.query({
+        bookId: $state.params.bookId
+      }, function(response) {
         $scope.participants = response;
         var scores = $scope.getScores($scope.participants);
         var namesList = $scope.getNames($scope.participants);
