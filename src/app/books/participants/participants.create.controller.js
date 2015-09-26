@@ -10,10 +10,16 @@
 
     if ($state.params.participantId) {
       Participants.get({id: $state.params.participantId}, function(response) {
+        response.score = parseInt(response.score);
         $scope.participant = response;
       });
     }
-
+    $scope.deleteParticipant = function(participant) {
+      participant.$delete(function(response) {
+        $state.go('book.participants', null, {
+          reload: true});
+      })
+    }
     $scope.saveParticipants = function(item) {
       if (!item) {
         throw new Error('item is not defined');
@@ -32,6 +38,8 @@
 
     $scope.updateParticipants = function(participant) {
       participant.$update(function(response) {
+        $state.go('book.participants', null, {
+          reload: true});
       });
     }
   }

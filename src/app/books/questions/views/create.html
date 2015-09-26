@@ -40,16 +40,14 @@
               <input type="checkbox"
                       ng-model="answer.response">
                 {{answer.value}}
-                <a ng-click="removeQuestion(answer, $index)">Eliminar</a>
+                <a ng-click="removeResponse(answer, $index)">Eliminar</a>
             </label>
           </div>
         </li>
       </ul>
     </div>
     <div class="input-group">
-      <input type="text"
-        ng-model="templateResponse"
-        required>
+      <input type="text" ng-model="templateResponse">
         <a class="btn btn-primary" ng-click="addResponse(templateResponse)">Agregar repuesta</a>
     </div>
     <br>

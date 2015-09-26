@@ -6,11 +6,12 @@
     .controller('SelectController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Participants, Books, Questions, toastr, Store) {
+  function controller(Auth, $scope, $state, Participants, Books, Questions, toastr, Store) {
 
     $scope.loadParticipantList = function() {
       Participants.query({
-        bookId: $state.params.bookId
+        bookId: $state.params.bookId,
+        userId: Auth.user.id
       }, function(response) {
         $scope.participants = response;
       });

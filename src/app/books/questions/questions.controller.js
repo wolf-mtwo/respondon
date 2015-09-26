@@ -6,7 +6,7 @@
     .controller('QuestionsController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Questions) {
+  function controller(Auth, $scope, $state, Questions) {
     Questions.query({bookId: $state.params.bookId}, function(response) {
       $scope.questions = response;
     });
@@ -15,6 +15,13 @@
       question.$delete(function() {
         $scope.questions.splice(idx, 1);
       });
+    }
+
+    $scope.isOwner = function(question) {
+      if (Auth.user.id == question.userId) {
+        return true;
+      }
+      return false;
     }
   }
 })();

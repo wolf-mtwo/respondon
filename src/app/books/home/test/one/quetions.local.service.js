@@ -19,6 +19,10 @@
     }
 
     var filter = function(questions) {
+      var validChapter = Config.load($state.params.bookId);
+      if (validChapter.length == 0) {
+        return questions;
+      }
       var result = [];
       questions.forEach(function(item) {
         if (isValidChapter(item.chapter)) {
