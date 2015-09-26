@@ -6,7 +6,7 @@
     .controller('ChartsController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Books, Config, Participants) {
+  function controller(Auth, $scope, $state, Books, Config, Participants) {
 
     $scope.chartConfig = {
       options: {
@@ -26,7 +26,15 @@
 
     $scope.participants = [];
     setInterval(function() {
-      Participants.query(function(response) {
+      $scope.loadScores();
+    }, 5000);
+
+
+    $scope.loadScores = function() {
+      Participants.query({
+        bookId: $state.params.bookId,
+        userId: Auth.user.id
+      }, function(response) {
         $scope.participants = response;
         var scores = $scope.getScores($scope.participants);
         var namesList = $scope.getNames($scope.participants);
@@ -34,7 +42,9 @@
         $scope.removeSeries();
         $scope.addSeries(scores);
       });
-    }, 2000);
+    }
+
+    $scope.loadScores();
 
     $scope.addSeries = function (scores) {
        $scope.chartConfig.series.push({

@@ -13,13 +13,16 @@
       <br>
       <div class="input-group">
         <span class="input-group-addon">Nota</span>
-        <input type="text"
+        <input type="number"
           class="form-control"
-          placeholder="Nota"
+          placeholder="0"
           ng-model="participant.score"
           required>
       </div>
       <br>
+      <button type="button"
+        ng-click="deleteParticipant(participant)"
+          class="btn btn-danger">Eliminar</button>
       <button type="submit"
           class="btn btn-primary">actualizar participante</button>
       <button class="btn btn-default" ui-sref="home">Cancelar</button>

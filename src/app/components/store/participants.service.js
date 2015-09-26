@@ -10,9 +10,17 @@
     return $resource(url, {
       id: '@id'
     }, {
+      get: {
+        url: url + '/id/:id',
+        method: 'GET'
+      },
       update: {
         url: url + '/id/:id',
         method: 'PUT'
+      },
+      delete: {
+        url: url + '/id/:id',
+        method: 'DELETE'
       }
     });
   }

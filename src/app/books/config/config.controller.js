@@ -11,7 +11,7 @@
     Books.get({id: $state.params.bookId}, function(response) {
       $scope.book = response;
       var chapters = generaterChapters($scope.book.chapters);
-      $scope.chapters =  loadLocalConfiguration(chapters);
+      $scope.chapters = loadLocalConfiguration(chapters);
     });
 
     function loadLocalConfiguration(chapters) {

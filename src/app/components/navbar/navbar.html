@@ -6,8 +6,17 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav">
-        <li><a ui-sref="home.book.list"></a></li>
+      <ul ng-if="!vm.user" class="nav navbar-nav">
+        <!-- //  Goes public links  -->
+      </ul>
+      <ul ng-if="vm.user" class="nav navbar-nav">
+        <li ng-repeat="link in vm.links">
+          <a ui-sref="{{link.route}}">{{link.value}}</a>
+        </li>
+        <!-- <li><a ui-sref="book.questions">¡Preguntas!</a></li>
+        <li><a ui-sref="book.participants">Participantes</a></li>
+        <li><a ui-sref="book.config">Configuracion del examen</a></li>
+        <li><a ui-sref="book.charts">Resultados</a></li> -->
       </ul>
       <ul ng-if="vm.user" class="nav navbar-nav navbar-right acme-navbar-text">
         <li><a href="#">{{vm.user.name}}</a></li>
@@ -20,8 +29,7 @@
       <ul ng-if="!vm.user" class="nav navbar-nav navbar-right acme-navbar-text">
         <li><a ui-sref="home.register">registrarse</a></li>
         <li><a ui-sref="home.login">iniciar session</a></li>
-        <li>{{ vm.relativeDate }}</li>
-        <li>{{ vm.user }}</li>
+        <li>{{vm.user}}</li>
       </ul>
     </div>
   </div>

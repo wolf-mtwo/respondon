@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div>
+    <acme-navbar user="user" options="navbar"/>
+  </div>
+
+  <!-- {{user}} -->
+
+  <div ui-view>
+    <div ng-if="!user">
+      <div class="jumbotron text-center">
+        <p class="lead">
+          <img src="assets/images/respondon.png" alt="respondon"><br>
+        </p>
+        <p>
+          With ♥ thanks to the contributions of<acme-malarkey extra-values="['Wolf', 'Wargos']" />
+        </p>
+      </div>
+    </div>
+    <div ng-if="user">
+      <div class="row" ng-init="init()">
+        <div class="col-sm-6 col-md-4" ng-repeat="book in books">
+          <div class="thumbnail">
+            <div class="caption">
+              <a ui-sref="book.home.test({bookId: book.id})">
+                <h3>{{ book.title }}</h3>
+              </a>
+              <p>{{ book.description }}</p>
+              <p><a ng-href="{{book.url}}">{{ book.url }}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a ui-sref="home.newbook" class="btn btn-primary">
+          Crear nuevo libro
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>

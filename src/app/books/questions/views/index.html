@@ -16,6 +16,9 @@
           Capitulo
         </th>
         <th>
+          Editar
+        </th>
+        <th>
           Eliminar
         </th>
       </tr>
@@ -31,7 +34,10 @@
         {{question.chapter}}
       </td>
       <td>
-        <a ng-click="deleteQuestion(question, $index)">Eliminar</a>
+        <a ng-if="isOwner(question)" ui-sref="book.questions.edit({questionId: question.id})">Editar</a>
+      </td>
+      <td>
+        <a ng-if="isOwner(question)" ng-click="deleteQuestion(question, $index)">Eliminar</a>
       </td>
     </tr>
   </table>

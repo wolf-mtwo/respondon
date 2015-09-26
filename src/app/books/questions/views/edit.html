@@ -1,0 +1,53 @@
+<div>
+  <form ng-submit="updateQuestion(question)">
+    <div class="input-group">
+      <span class="input-group-addon">Pregunta</span>
+      <input type="text"
+        class="form-control"
+        placeholder="Pregunta"
+        ng-model="question.title"
+        required>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">Tipo</span>
+      <select name="singleSelect" ng-model="question.type">
+        <option value="">---Please select---</option>
+        <option value="VoF">Falso o verdadero</option>
+        <option value="MULTIPLE">Selecion multiple</option>
+      </select>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon">Capitulo</span>
+      <input type="text"
+        class="form-control"
+        placeholder="Capitulo"
+        ng-model="question.chapter"
+        required>
+    </div>
+    <h2>Repuestas</h2>
+    <div>
+      <ul>
+        <li ng-repeat="answer in answers">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"
+                      ng-model="answer.response">
+                {{answer.value}}
+                <a ng-click="removeResponse(answer, $index)">Eliminar</a>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="input-group">
+      <input type="text" ng-model="templateResponse">
+        <a class="btn btn-primary" ng-click="addResponse(templateResponse)">Agregar repuesta</a>
+    </div>
+    <br>
+    <button type="submit"
+        class="btn btn-primary">Actualizar pregunta</button>
+    <button class="btn btn-default" ui-sref="home">Cancelar</button>
+  </form>
+</div>

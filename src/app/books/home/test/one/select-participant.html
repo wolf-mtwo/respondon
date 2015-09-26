@@ -1,7 +1,12 @@
 <div ng-controller="SelectController" ng-init="loadParticipantList()">
-  <ul>
-    <li ng-repeat="participant in participants">
-      <a ng-click="selectParticipant(participant)">{{participant.name}}</a>
-    </li>
-  </ul>
+  <div class="list-group">
+    <a href="#" class="list-group-item active">
+      Lista de participantes
+    </a>
+    <a ng-click="selectParticipant(participant)"
+       class="list-group-item"
+       ng-repeat="participant in participants">
+      {{participant.name}}
+    </a>
+  </div>
 </div>

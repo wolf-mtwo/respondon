@@ -6,17 +6,19 @@
     .controller('SelectController', controller);
 
   /** @ngInject */
-  function controller($scope, $state, Participants, Books, Questions, toastr) {
+  function controller(Auth, $scope, $state, Participants, Books, Questions, toastr, Store) {
 
     $scope.loadParticipantList = function() {
-      Participants.query(function(response) {
+      Participants.query({
+        bookId: $state.params.bookId,
+        userId: Auth.user.id
+      }, function(response) {
         $scope.participants = response;
       });
     }
 
     $scope.selectParticipant = function(participant) {
-      localStorage.setItem('participant', JSON.stringify(participant));
-      console.log(JSON.parse(localStorage.getItem('participant')));
+      Store.save('participant', participant);
       $state.transitionTo($state.current, $state.params, {
         reload: true,
         inherit: false,
