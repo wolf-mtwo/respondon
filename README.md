@@ -1,4 +1,17 @@
 # Respondon
+## build 0.1.2
+- editar una pregunta
+- eliminar participantes
+- bichos:
+  - las preguntas se muestrand en otros libros
+  - los participantes se muestran en otros libros
+  - la configiracion no deja que muestre todas las preguntas cuando no se
+  seleciona un capitulo especifico
+  - login no sierra correctamente
+  - pregunta (response) ya no es requerido
+  - eliminar registro de otros ya no es posible
+  - los resultados se actializan por libro y participanta cada 5sec
+
 ## build 0.1.1
 - Actualizados todos los servicios
 - Implimentando authentication y session
