@@ -24,7 +24,7 @@
     toastr.options.progressBar = true;
 
     highchartsNGProvider.lazyLoad([highchartsNGProvider.HIGHCHART]);
-    highchartsNGProvider.basePath("/assets/lib/");
+    highchartsNGProvider.basePath("./assets/lib/");
 
   }
 
